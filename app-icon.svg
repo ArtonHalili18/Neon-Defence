@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#06080f"/>
+      <stop offset="100%" stop-color="#0a1628"/>
+    </linearGradient>
+    <linearGradient id="shield" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00e5ff"/>
+      <stop offset="100%" stop-color="#0091ea"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e040fb"/>
+      <stop offset="100%" stop-color="#ff2d95"/>
+    </linearGradient>
+    <filter id="neon">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="neon2">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <!-- Background -->
+  <rect width="1024" height="1024" rx="220" fill="url(#bg)"/>
+  <!-- Grid lines -->
+  <g stroke="#00e5ff" stroke-width="0.5" opacity="0.08">
+    <line x1="0" y1="200" x2="1024" y2="200"/>
+    <line x1="0" y1="400" x2="1024" y2="400"/>
+    <line x1="0" y1="600" x2="1024" y2="600"/>
+    <line x1="0" y1="800" x2="1024" y2="800"/>
+    <line x1="200" y1="0" x2="200" y2="1024"/>
+    <line x1="400" y1="0" x2="400" y2="1024"/>
+    <line x1="600" y1="0" x2="600" y2="1024"/>
+    <line x1="800" y1="0" x2="800" y2="1024"/>
+  </g>
+  <!-- Shield shape -->
+  <g filter="url(#neon)" transform="translate(512, 460)">
+    <path d="M0,-260 L220,-160 L220,80 Q220,260 0,340 Q-220,260 -220,80 L-220,-160 Z" 
+          fill="none" stroke="url(#shield)" stroke-width="12" opacity="0.9"/>
+    <path d="M0,-220 L180,-130 L180,60 Q180,220 0,290 Q-180,220 -180,60 L-180,-130 Z" 
+          fill="url(#bg)" stroke="url(#shield)" stroke-width="4" opacity="0.5"/>
+  </g>
+  <!-- Center turret -->
+  <g filter="url(#neon2)" transform="translate(512, 430)">
+    <!-- Hex base -->
+    <polygon points="0,-70 61,-35 61,35 0,70 -61,35 -61,-35" fill="#0a1628" stroke="#00e5ff" stroke-width="5"/>
+    <!-- Turret barrel -->
+    <rect x="-8" y="-120" width="16" height="60" fill="#00e5ff" rx="3"/>
+    <circle cx="0" cy="0" r="20" fill="#00e5ff" opacity="0.3"/>
+    <circle cx="0" cy="0" r="10" fill="#00e5ff"/>
+  </g>
+  <!-- Crosshair rings -->
+  <g transform="translate(512, 430)" opacity="0.15">
+    <circle cx="0" cy="0" r="160" fill="none" stroke="#e040fb" stroke-width="2" stroke-dasharray="10,10"/>
+    <circle cx="0" cy="0" r="220" fill="none" stroke="#00e5ff" stroke-width="1" stroke-dasharray="6,12"/>
+  </g>
+  <!-- Title text -->
+  <text x="512" y="780" text-anchor="middle" font-family="SF Pro Display, -apple-system, sans-serif" font-weight="900" font-size="72" letter-spacing="12" fill="url(#glow)" filter="url(#neon2)">NEON</text>
+  <text x="512" y="860" text-anchor="middle" font-family="SF Pro Display, -apple-system, sans-serif" font-weight="800" font-size="48" letter-spacing="16" fill="#00e5ff" opacity="0.8">DEFENSE</text>
+  <!-- Corner accents -->
+  <g stroke="#ff2d95" stroke-width="3" opacity="0.4">
+    <polyline points="80,120 80,80 120,80" fill="none"/>
+    <polyline points="944,120 944,80 904,80" fill="none"/>
+    <polyline points="80,904 80,944 120,944" fill="none"/>
+    <polyline points="944,904 944,944 904,944" fill="none"/>
+  </g>
+</svg>
